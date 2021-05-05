@@ -3,6 +3,7 @@ import React from "react";
 export default function Food(props) {
   const [select, setSelect] = React.useState("");
   const [counter, setCounter] = React.useState();
+
   function selectOne() {
     setSelect("select");
     setCounter(<Counter />);
@@ -10,17 +11,15 @@ export default function Food(props) {
 
   return (
     <>
-      <ul class="food-list">
-        <li class={"food-option " + select} onClick={selectOne}>
-          <img src={props.img} />
-          <p class="option-title">{props.title}</p>
-          <p class="option-description">{props.discription}</p>
-          <div class="option-bottom">
-            <p class="price">R$ {props.price}</p>
-            {counter}
-          </div>
-        </li>
-      </ul>
+      <li class={"food-option " + select} onClick={selectOne}>
+        <img src={props.image} />
+        <p class="option-title">{props.title}</p>
+        <p class="option-description">{props.description}</p>
+        <div class="option-bottom">
+          <p class="price">R$ {props.price}</p>
+          {counter}
+        </div>
+      </li>
     </>
   );
 }
@@ -48,5 +47,3 @@ function Counter() {
     </div>
   );
 }
-
-function selectOne() {}
