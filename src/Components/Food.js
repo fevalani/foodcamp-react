@@ -6,7 +6,7 @@ export default function Food(props) {
 
   function selectOne() {
     setSelect("select");
-    setCounter(<Counter />);
+    setCounter(<Counter setCounter={setCounter} setSelect={setSelect} />);
   }
 
   return (
@@ -24,14 +24,18 @@ export default function Food(props) {
   );
 }
 
-function Counter() {
-  const [value, setValue] = React.useState(0);
+function Counter(props) {
+  const [value, setValue] = React.useState(1);
 
   function changeNumber(num) {
     if (num === "+") {
       setValue(value + 1);
     } else if (num === "-" && value !== 0) {
       setValue(value - 1);
+      if (value === 1) {
+        props.setSelect("");
+        props.setCounter();
+      }
     }
   }
 

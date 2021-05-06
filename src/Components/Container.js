@@ -1,53 +1,49 @@
+import React from "react";
 import Food from "./Food";
-
-const food = [
-  {
-    image: "./imagens/feijoada.jpeg",
-    title: "Feijoada bolada",
-    description: "Uma monte de pedaço de porco diferente",
-    price: "17,40",
-  },
-  {
-    image: "./imagens/feijoada.jpeg",
-    title: "Feijoada bolada",
-    description: "Uma monte de pedaço de porco diferente",
-    price: "17,40",
-  },
-];
-const drink = [{ image: "", title: "", description: "", price: "" }];
-const dessert = [{ image: "", title: "", description: "", price: "" }];
+import data from "./data";
 
 export default function Container() {
+  const [foodObj, setFoodObj] = React.useState(data.food);
+  const [drinkObj, setDrinkObj] = React.useState(data.drink);
+  const [dessertObj, setDessertObj] = React.useState(data.dessert);
+
   return (
     <>
-      <p class="food-title">Primeiro, seu prato</p>
-      <ul class="food-list">
-        {food.map((t) => (
+      <p className="food-title">Primeiro, seu prato</p>
+      <ul className="food-list">
+        {foodObj.map((t) => (
           <Food
             image={t.image}
+            alt={t.alt}
             title={t.title}
             description={t.description}
             price={t.price}
           />
         ))}
       </ul>
-      <p class="food-title">Agora, sua bebida</p>
-      <ul class="food-list">
-        <Food
-          image="./imagens/feijoada.jpeg"
-          title="Feijoada bolada"
-          description="Uma monte de pedaço de porco diferente"
-          price="17,40"
-        />
+      <p className="food-title">Agora, sua bebida</p>
+      <ul className="food-list">
+        {drinkObj.map((t) => (
+          <Food
+            image={t.image}
+            alt={t.alt}
+            title={t.title}
+            description={t.description}
+            price={t.price}
+          />
+        ))}
       </ul>
-      <p class="food-title">Por fim, sua sobremesa</p>
-      <ul class="food-list">
-        <Food
-          image="./imagens/feijoada.jpeg"
-          title="Feijoada bolada"
-          description="Uma monte de pedaço de porco diferente"
-          price="17,40"
-        />
+      <p className="food-title">Por fim, sua sobremesa</p>
+      <ul className="food-list">
+        {dessertObj.map((t) => (
+          <Food
+            image={t.image}
+            alt={t.alt}
+            title={t.title}
+            description={t.description}
+            price={t.price}
+          />
+        ))}
       </ul>
     </>
   );
