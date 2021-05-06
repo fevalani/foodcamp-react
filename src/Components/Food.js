@@ -11,12 +11,12 @@ export default function Food(props) {
 
   return (
     <>
-      <li class={"food-option " + select} onClick={selectOne}>
+      <li className={"food-option " + select} onClick={selectOne}>
         <img src={props.image} />
-        <p class="option-title">{props.title}</p>
-        <p class="option-description">{props.description}</p>
-        <div class="option-bottom">
-          <p class="price">R$ {props.price}</p>
+        <p className="option-title">{props.title}</p>
+        <p className="option-description">{props.description}</p>
+        <div className="option-bottom">
+          <p className="price">R$ {props.price}</p>
           {counter}
         </div>
       </li>
@@ -26,26 +26,30 @@ export default function Food(props) {
 
 function Counter(props) {
   const [value, setValue] = React.useState(1);
+  const { setCounter, setSelect } = props;
 
   function changeNumber(num) {
     if (num === "+") {
       setValue(value + 1);
     } else if (num === "-" && value !== 0) {
-      setValue(value - 1);
       if (value === 1) {
-        props.setSelect("");
-        props.setCounter();
+        setValue(value - 1);
+        setSelect("");
+        setCounter();
+        return;
+      } else {
+        setValue(value - 1);
       }
     }
   }
 
   return (
-    <div class="counter">
-      <p class="subtract" onClick={() => changeNumber("-")}>
+    <div className="counter">
+      <p className="subtract" onClick={() => changeNumber("-")}>
         -
       </p>
-      <p class="value">{value}</p>
-      <p class="add" onClick={() => changeNumber("+")}>
+      <p className="value">{value}</p>
+      <p className="add" onClick={() => changeNumber("+")}>
         +
       </p>
     </div>

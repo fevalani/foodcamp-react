@@ -1,4 +1,9 @@
 const data = {
+  foodTitles: [
+    "Primeiro, seu prato",
+    "Agora, sua bebida",
+    "Por fim, sua sobremesa",
+  ],
   food: [
     {
       image: "./imagens/feijoada.jpeg",
