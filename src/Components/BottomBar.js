@@ -3,7 +3,9 @@ export default function BottomBar({
   drinkCounter,
   dessertCounter,
 }) {
-  return foodCounter === [] && drinkCounter === [] && dessertCounter === []
+  return foodCounter.length !== 0 &&
+    drinkCounter.length !== 0 &&
+    dessertCounter.length !== 0
     ? ConfirmButton()
     : FakeButton();
 }

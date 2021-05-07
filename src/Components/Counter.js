@@ -8,18 +8,18 @@ export default function Counter({
   setValue,
 }) {
   const selectedItem = counter.find((item) => item.title === title);
-  let valueP = selectedItem !== undefined ? selectedItem.amount : 1;
+  let currentAmount = selectedItem !== undefined ? selectedItem.amount : 1;
 
   function addNumber() {
-    valueP = value + 1;
-    setValue(valueP);
-    if (valueP === 1) {
+    currentAmount = value + 1;
+    setValue(currentAmount);
+    if (currentAmount === 1) {
       setCounter([
         ...counter,
         {
           title: title,
           price: price,
-          amount: valueP,
+          amount: currentAmount,
         },
       ]);
       setSelect(true);
@@ -30,7 +30,7 @@ export default function Counter({
         {
           title: title,
           price: price,
-          amount: valueP,
+          amount: currentAmount,
         },
       ]);
       setSelect(true);
@@ -38,20 +38,20 @@ export default function Counter({
   }
 
   function decrementNumber() {
-    valueP = value - 1;
+    currentAmount = value - 1;
     const selectedItem = counter.filter((item) => item.title !== title);
-    if (valueP === 0) {
+    if (currentAmount === 0) {
       setValue(1);
       setSelect(false);
       setCounter([...selectedItem]);
     } else {
-      setValue(valueP);
+      setValue(currentAmount);
       setCounter([
         ...selectedItem,
         {
           title: title,
           price: price,
-          amount: valueP,
+          amount: currentAmount,
         },
       ]);
     }
