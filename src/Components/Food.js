@@ -3,10 +3,20 @@ import React from "react";
 export default function Food(props) {
   const [select, setSelect] = React.useState("");
   const [counter, setCounter] = React.useState();
+  console.log(props.counter);
+  console.log(setCounter);
+  console.log(setSelect);
 
   function selectOne() {
     setSelect("select");
-    setCounter(<Counter setCounter={setCounter} setSelect={setSelect} />);
+    setCounter(
+      <Counter
+        setDishesCounter={props.Counter}
+        setCounter={setCounter}
+        setSelect={setSelect}
+      />
+    );
+    props.Counter(1);
   }
 
   return (
@@ -26,16 +36,19 @@ export default function Food(props) {
 
 function Counter(props) {
   const [value, setValue] = React.useState(1);
-  const { setCounter, setSelect } = props;
+  const { setCounter, setSelect, setDishesCounter } = props;
+  console.log(value);
 
   function changeNumber(num) {
     if (num === "+") {
       setValue(value + 1);
     } else if (num === "-" && value !== 0) {
       if (value === 1) {
+        console.log("on");
         setValue(value - 1);
         setSelect("");
         setCounter();
+        setDishesCounter(0);
         return;
       } else {
         setValue(value - 1);
