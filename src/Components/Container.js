@@ -13,24 +13,28 @@ export default function Container() {
   return (
     <>
       <DishesSection
+        key={0}
         dishes={food}
         title={dishesTitles[0]}
         dishesCounter={foodCounter}
         setDishesCounter={setFoodCounter}
       />
       <DishesSection
+        key={1}
         dishes={drink}
         title={dishesTitles[1]}
         dishesCounter={drinkCounter}
         setDishesCounter={setDrinkCounter}
       />
       <DishesSection
+        key={2}
         dishes={dessert}
         title={dishesTitles[2]}
         dishesCounter={dessertCounter}
         setDishesCounter={setDessertCounter}
       />
       <BottomBar
+        key={3}
         foodCounter={foodCounter}
         drinkCounter={drinkCounter}
         dessertCounter={dessertCounter}

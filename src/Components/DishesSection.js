@@ -10,8 +10,9 @@ export default function DishesSection({
     <>
       <p className="food-title">{title}</p>
       <ul className="food-list">
-        {dishes.map((t) => (
+        {dishes.map((t, i) => (
           <Dishes
+            key={i}
             counter={dishesCounter}
             setCounter={setDishesCounter}
             image={t.image}

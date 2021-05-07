@@ -1,5 +1,11 @@
-export default function BottomBar(props) {
-  return FakeButton();
+export default function BottomBar({
+  foodCounter,
+  drinkCounter,
+  dessertCounter,
+}) {
+  return foodCounter === [] && drinkCounter === [] && dessertCounter === []
+    ? ConfirmButton()
+    : FakeButton();
 }
 
 function ConfirmButton() {
