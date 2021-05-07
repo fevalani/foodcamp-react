@@ -1,5 +1,5 @@
 const data = {
-  foodTitles: [
+  dishesTitles: [
     "Primeiro, seu prato",
     "Agora, sua bebida",
     "Por fim, sua sobremesa",
